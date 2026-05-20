@@ -1,0 +1,255 @@
+.widget{
+    background-color: rgba(20, 120, 200, 0.3);
+    border-radius: 8px;
+    padding: 10px;
+    backdrop-filter: blur(10px);
+    h2{
+        margin: 0;
+        text-align: center;
+    }
+}
+
+/* ─── Calendar Widget ─────────────────────────── */
+
+.calendar-widget {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    user-select: none;
+}
+
+.cal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2px;
+}
+
+.cal-header h2 {
+    font-size: .85rem;
+    font-weight: 600;
+    letter-spacing: .5px;
+}
+
+.cal-nav {
+    background: none;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 1px 8px;
+    border-radius: 6px;
+    transition: background .2s;
+    line-height: 1;
+}
+
+.cal-nav:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1px;
+    text-align: center;
+}
+
+.cal-cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 28px;
+    font-size: .75rem;
+    border-radius: 4px;
+    transition: background .15s, transform .15s;
+}
+
+.cal-day-label {
+    font-size: .65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    opacity: .55;
+}
+
+.cal-blank {
+    pointer-events: none;
+}
+
+.cal-days .cal-cell:not(.cal-blank) {
+    cursor: pointer;
+}
+
+.cal-days .cal-cell:not(.cal-blank):hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: scale(1.1);
+}
+
+.cal-today {
+    background: rgba(60, 180, 255, 0.45);
+    font-weight: 700;
+    box-shadow: 0 0 6px rgba(60, 180, 255, 0.5);
+}
+
+.cal-selected {
+    outline: 2px solid rgba(255, 255, 255, 0.7);
+    outline-offset: -2px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+
+/* ─── Clock Widget ────────────────────────────── */
+
+.clock-widget {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    color: #fff;
+}
+
+.clock-time {
+    display: flex;
+    align-items: baseline;
+    gap: 2px;
+    font-family: 'Consolas', 'Courier New', monospace;
+}
+
+.clock-h, .clock-m {
+    font-size: 2.4rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.clock-s {
+    font-size: 1.2rem;
+    opacity: .5;
+    font-weight: 400;
+}
+
+.clock-sep {
+    font-size: 2rem;
+    font-weight: 700;
+    animation: blink 1s step-end infinite;
+}
+
+.clock-sep-sec {
+    font-size: 1rem;
+    opacity: .4;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+.clock-date {
+    font-size: .75rem;
+    opacity: .6;
+    letter-spacing: .5px;
+}
+
+
+/* ─── Weather Widget ──────────────────────────── */
+
+.weather-widget {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    color: #fff;
+}
+
+.weather-top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.weather-icon {
+    font-size: 2.4rem;
+    line-height: 1;
+}
+
+.weather-temp-block {
+    display: flex;
+    flex-direction: column;
+}
+
+.weather-temp {
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.weather-cond {
+    font-size: .7rem;
+    opacity: .6;
+}
+
+.weather-details {
+    display: flex;
+    gap: 16px;
+}
+
+.weather-detail {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: .75rem;
+    opacity: .75;
+}
+
+.weather-detail-icon {
+    font-size: .9rem;
+}
+
+
+/* ─── System Monitor Widget ───────────────────── */
+
+.sysmon-widget {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: #fff;
+}
+
+.sysmon-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sysmon-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.sysmon-label {
+    width: 32px;
+    font-size: .7rem;
+    font-weight: 600;
+    opacity: .7;
+    text-transform: uppercase;
+}
+
+.sysmon-track {
+    flex: 1;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.sysmon-fill {
+    height: 100%;
+    border-radius: 5px;
+    transition: width .3s ease, background .5s ease;
+    box-shadow: 0 0 6px currentColor;
+}
+
+.sysmon-pct {
+    width: 30px;
+    text-align: right;
+    font-size: .7rem;
+    font-family: 'Consolas', monospace;
+    opacity: .7;
+}

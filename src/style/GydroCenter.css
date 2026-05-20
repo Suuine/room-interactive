@@ -1,0 +1,317 @@
+body {
+  margin: 0; /* Preserve existing margin reset */
+  font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif; /* Preserve existing font-family */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #ffcccc; /* Soft pink background for the "wall" */
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center;   /* Center vertically */
+  min-height: 100vh;     /* Ensure it takes full viewport height */
+}
+
+.gydro-center-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #e0e5ec; /* Light, slightly bluish-grey, for the station itself */
+  font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  color: #333;
+  gap: 15px; /* Reduced gap */
+  box-sizing: border-box;
+  min-width: 600px; /* Adjusted to fit within 500x800 while maintaining aspect ratio */
+  max-height: 750px;
+  width: 100%; /* Ensure it's responsive within its max-width */
+  margin: auto; /* Ensure centering within flex container if needed */
+  padding: 15px; /* Reduced padding inside the container for its own content */
+  border-radius: 20px; /* Apply base border-radius here as well */
+  box-shadow: 6px 6px 12px #e08787, -6px -6px 12px #fff0f0; /* Apply base neumorphic shadow */
+  aspect-ratio: 2 / 3; /* Set width to height ratio to 2:3 */
+  overflow: auto; /* Add overflow to handle content that might not fit */
+}
+
+/* Base Neumorphic Card Style */
+.neumorphic-card {
+  background-color: #e0e5ec;
+  border-radius: 20px;
+  box-shadow: 6px 6px 12px #e08787, -6px -6px 12px #fff0f0; /* Outset shadow for raised effect */
+  padding: 15px; /* Reduced padding */
+}
+
+/* Inset (pressed) style for buttons, toggles etc. */
+.neumorphic-inset {
+  background-color: #e0e5ec;
+  border-radius: 15px;
+  box-shadow: inset 5px 5px 10px #b8becc, inset -5px -5px 10px #ffffff;
+}
+
+/* Header */
+.gydro-center-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0; /* Reduced padding */
+  font-size: 1em; /* Reduced font size */
+  font-weight: 300;
+}
+
+.gydro-center-header .time {
+  font-weight: 600;
+}
+
+.gydro-center-header .status-icons span {
+  margin-left: 5px;
+}
+
+.gydro-center-header .title {
+  font-size: 1.5em; /* Reduced font size */
+  font-weight: 500;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.gydro-center-header .menu-icon {
+  font-size: 1.2em; /* Reduced font size */
+  cursor: pointer;
+}
+
+/* Main Temperature Control Card */
+.temp-control-card {
+  background-color: #e0e5ec;
+  border-radius: 20px;
+  box-shadow: 6px 6px 12px #c9b8cc, -6px -6px 12px #ffffff;
+  padding: 20px 15px; /* Reduced padding */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px; /* Reduced gap */
+}
+
+.temp-display {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Reduced gap */
+}
+
+.temp-value {
+  font-size: 3em; /* Reduced font size */
+  font-weight: 300;
+  line-height: 1;
+}
+
+.temp-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 3px; /* Reduced gap */
+}
+
+.temp-btn {
+  background-color: #e0e5ec;
+  border-radius: 15px;
+  box-shadow: inset 5px 5px 10px #cbb8cc, inset -5px -5px 10px #ffffff;
+  width: 35px; /* Reduced width */
+  height: 35px; /* Reduced height */
+  border: none;
+  font-size: 1.2em; /* Reduced font size */
+  font-weight: bold;
+  color: #555;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.temp-btn:active {
+  box-shadow: inset 2px 2px 5px #b8becc, inset -2px -2px 5px #ffffff;
+}
+
+.temp-status {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Reduced gap */
+  font-size: 0.9em; /* Reduced font size */
+  font-weight: 400;
+}
+
+.progress-bar .progress-circle {
+  background-color: #e0e5ec;
+  border-radius: 50%;
+  box-shadow: 6px 6px 12px #b8becc, -6px -6px 12px #ffffff;
+  width: 60px; /* Reduced width */
+  height: 60px; /* Reduced height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1em; /* Reduced font size */
+  font-weight: 600;
+  /* Для імітації прогрес-бару можна використовувати конічний градієнт або SVG */
+  /* background: conic-gradient(#8ac926 68%, #e0e5ec 0%); */
+}
+
+/* Info Cards Wrapper */
+.info-cards-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px; /* Reduced gap */
+  width: 100%;
+}
+
+.info-card {
+  background-color: #e0e5ec;
+  border-radius: 20px;
+  box-shadow: 6px 6px 12px #b8becc, -6px -6px 12px #ffffff;
+  padding: 15px; /* Reduced padding */
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Reduced gap */
+}
+
+.info-card .card-header {
+  font-weight: 600;
+  font-size: 1em; /* Reduced font size */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.info-card .card-header .edit-link {
+  font-size: 0.7em; /* Reduced font size */
+  color: #777;
+  cursor: pointer;
+}
+
+.info-card .card-data {
+  display: flex;
+  flex-direction: column;
+  gap: 3px; /* Reduced gap */
+}
+
+.info-card .card-data .value {
+  font-weight: 600;
+  font-size: 1.1em; /* Reduced font size */
+}
+
+/* Specific card graphics (placeholders) */
+.radiator-graphic {
+  width: 60px; /* Reduced width */
+  height: 60px; /* Reduced height */
+  background-color: #dbe0e7;
+  border-radius: 10px;
+  margin: 8px auto; /* Reduced margin */
+  box-shadow: inset 3px 3px 6px #b8becc, inset -3px -3px 6px #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em; /* Reduced font size */
+}
+
+.panels-graphic {
+  width: 100px; /* Reduced width */
+  height: 50px; /* Reduced height */
+  background-color: #dbe0e7;
+  border-radius: 10px;
+  margin: 8px auto; /* Reduced margin */
+  box-shadow: inset 3px 3px 6px #b8becc, inset -3px -3px 6px #ffffff;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 0.7em; /* Reduced font size */
+}
+.panels-graphic > div {
+    background-color: #e0e5ec;
+    border-radius: 5px;
+    box-shadow: 3px 3px 6px #b8becc, -3px -3px 6px #ffffff;
+    padding: 3px; /* Reduced padding */
+    text-align: center;
+}
+
+
+/* Schedule Section */
+.schedule-section {
+  background-color: #e0e5ec;
+  border-radius: 20px;
+  box-shadow: 6px 6px 12px #b8becc, -6px -6px 12px #ffffff;
+  padding: 13px; /* Reduced padding */
+  display: flex;
+  flex-direction: column;
+  gap: 6px; /* Reduced gap */
+}
+
+.add-button {
+  background-color: #e0e5ec;
+  border-radius: 15px;
+  box-shadow: inset 5px 5px 10px #b8becc, inset -5px -5px 10px #ffffff;
+  padding: 8px 12px; /* Reduced padding */
+  width: fit-content;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 6px; /* Reduced margin */
+}
+
+.add-button:active {
+  box-shadow: inset 2px 2px 5px #b8becc, inset -2px -2px 5px #ffffff;
+}
+
+.schedule-item {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr 1fr 1fr 0.5fr;
+  align-items: center;
+  padding: 4px 0; /* Reduced padding */
+  border-bottom: 1px solid #c7c7c7;
+}
+
+.schedule-item:last-child {
+  border-bottom: none;
+}
+
+.schedule-item > div {
+  font-size: 0.85em; /* Reduced font size */
+}
+
+/* Toggle Switch (basic neumorphic version) */
+.toggle-switch {
+  width: 40px; /* Reduced width */
+  height: 22px; /* Reduced height */
+  border-radius: 11px; /* Adjusted border-radius */
+  background-color: #dbe0e7;
+  box-shadow: inset 2px 2px 5px #b8becc, inset -2px -2px 5px #ffffff;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.toggle-switch::before {
+  content: '';
+  position: absolute;
+  top: 2px; /* Adjusted position */
+  left: 2px; /* Adjusted position */
+  width: 18px; /* Reduced width */
+  height: 18px; /* Reduced height */
+  border-radius: 50%;
+  background-color: #e0e5ec;
+  box-shadow: 3px 3px 6px #b8becc, -3px -3px 6px #ffffff; /* Raised knob */
+  transition: all 0.2s ease;
+}
+
+/* Active state for toggle (example) */
+.toggle-switch.active {
+  background-color: #8ac926; /* Green for active */
+  box-shadow: inset 2px 2px 5px #6d9f1e, inset -2px -2px 5px #a7f33d;
+}
+
+.toggle-switch.active::before {
+  left: calc(100% - 20px); /* Adjusted position */
+  box-shadow: 3px 3px 6px #6d9f1e, -3px -3px 6px #a7f33d;
+}
+
+/* Dehumidifier Toggle */
+.dehumidifier-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9em; /* Reduced font size */
+  padding: 8px 0; /* Reduced padding */
+}

@@ -1,0 +1,163 @@
+{
+    "MainScreen": {
+        "password": "1234"
+    },
+    "Screen": {
+        "textfile": [
+            {
+                "id": "txt-file",
+                "name": "readme.txt",
+                "position": {
+                    "top": "60%",
+                    "left": "60%"
+                },
+                "content": "Welcome to the interactive room! This is a text file that you can move around the screen. Feel free to explore and interact with the icons!"
+            },
+            {
+                "id": "txt-file2",
+                "name": "notes.txt",
+                "position": {
+                    "top": "70%",
+                    "left": "50%"
+                },
+                "content": "This is another text file. You can add more files like this to make the experience richer!"
+            }
+        ],
+        "folder": [
+            {
+                "id": "folder1",
+                "name": "My Documents",
+                "position": {
+                    "top": "30%",
+                    "left": "20%"
+                },
+                "files": [
+                    {
+                        "id": "file1",
+                        "type": "txt",
+                        "name": "resume.pdf",
+                        "content": "This is a sample resume file. You can replace this with your actual resume or any other document you want to keep here."
+                    },
+                    {
+                        "id": "file2",
+                        "type": "txt",
+                        "name": "project proposal.txt",
+                        "content": "This is a sample project proposal. You can edit this file to include details about your projects, ideas, or anything else you want to keep track of!"
+                    }
+                ]
+            },
+            {
+                "id": "folder2",
+                "name": "Pictures",
+                "position": {
+                    "top": "40%",
+                    "left": "40%"
+                },
+                "files": [
+                    {
+                        "id": "file3",
+                        "type": "img",
+                        "name": "cup.jpg",
+                        "src": "/cup.jpg"
+                    },
+                    {
+                        "id": "file4",
+                        "type": "img",
+                        "name": "book.jpg",
+                        "src": "/book.jpg"
+                    }
+                ]
+            },
+            {
+                "id": "folder3",
+                "name": "Folder",
+                "position": {
+                    "top": "1%",
+                    "left": "1%"
+                },
+                "files": [
+                    {
+                        "id": "file5",
+                        "type": "txt",
+                        "name": "notes.txt",
+                        "content": "This is a text file inside the folder. You can edit this content to include any notes or information you want to keep here!"
+                    },
+                    {
+                        "id": "file6",
+                        "type": "txt",
+                        "name": "podcast.txt",
+                        "content": "This is a text file for podcast ideas. You can use this file to jot down any ideas or topics you want to explore in your podcast!"
+                    },
+                    {
+                        "id": "file7",
+                        "type": "txt",
+                        "name": "ideas.txt",
+                        "content": "This is a text file for general ideas. You can use this file to keep track of any random thoughts, inspirations, or ideas that come to mind!"
+                    }
+                ]
+            }
+        ],
+        "Chat": [
+            {
+                "messeges": [
+                    {
+                        "id": "1",
+                        "text": "Hiiiiii, how are u doing there!?",
+                        "sender": "Clara"
+                    },
+                    {
+                        "id": "2",
+                        "answers": [
+                            {
+                                "text": "I'm doing great, thanks for asking!",
+                                "sender": "You"
+                            },
+                            {
+                                "text": "I'm doing great, thanks for asking!",
+                                "sender": "You"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "3",
+                        "text": "How about that lesson yesterday?",
+                        "sender": "Clara"
+                    },
+                    {
+                        "id": "4",
+                        "text": "I was a bit late, but I think I got most of it.",
+                        "sender": "Clara"
+                    },
+                    {
+                        "id": "5",
+                        "text": "Hey, did you finish that homework?",
+                        "sender": "Clara"
+                    },
+                    {
+                        "id": "6",
+                        "text": "U are besy now?",
+                        "sender": "Clara"
+                    },
+                    {
+                        "id": "7",
+                        "answers": [
+                            {
+                                "text": "Yes, stop bothering me",
+                                "sender": "You"
+                            },
+                            {
+                                "text": "No, I'm not busy so much but can we talk later?",
+                                "sender": "You"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "8",
+                        "text": "Ok, I'll leave u alone",
+                        "sender": "Clara"
+                    }
+                ]
+            }
+        ]
+    }
+}
