@@ -1,0 +1,252 @@
+.hydro-panel-container {
+  width: 800px;
+  height: 700px;
+  background: #eef2f9; /* Light base color */
+  border-radius: 30px;
+  box-shadow: 
+    20px 20px 50px #e1a0c1,  /* Softer, darker shadow */
+    -20px -20px 50px #905972; /* Softer, lighter shadow */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr;
+  gap: 20px;
+  padding: 30px;
+  box-sizing: border-box;
+  color: #555c69; /* Darker text color for readability */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+  overflow: hidden;
+  transform: scale(1.3); /* Increase size by 1.5 times */
+  transform-origin: center center; /* Ensure scaling happens from the center */
+}
+
+.hydro-header {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+}
+
+.hydro-title {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #4b79a1, #283e51);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+}
+
+.hydro-time {
+  font-size: 18px;
+  font-family: monospace;
+  color: #7d8da1;
+}
+
+.hydro-section {
+  background: #eef2f9;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 
+    inset 8px 8px 15px #c1c5ca,
+    inset -8px -8px 15px #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Thermostat Component */
+.thermostat-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 
+    10px 10px 20px #c1c5ca,
+    -10px -10px 20px #ffffff;
+}
+
+.thermostat-dial {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #eef2f9, #dbe0e7);
+  box-shadow: 
+    15px 15px 30px #b7bbc0,
+    -15px -15px 30px #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: grab;
+}
+
+.thermostat-inner {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: #eef2f9;
+  box-shadow: 
+    inset 8px 8px 16px #c1c5ca,
+    inset -8px -8px 16px #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.thermostat-temp {
+  font-size: 48px;
+  font-weight: 800;
+  color: #28587b;
+  text-shadow: 1px 1px 2px #ffffff;
+}
+
+.thermostat-label {
+  font-size: 12px;
+  color: #8a9cb2;
+  margin-top: 5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.thermostat-indicator {
+  position: absolute;
+  top: 15px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #4b79a1;
+  box-shadow: 0 0 10px #4b79a1;
+}
+
+.thermostat-controls {
+  display: flex;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.thermostat-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #eef2f9;
+  border: none;
+  color: #555c69;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 
+    5px 5px 10px #c1c5ca,
+    -5px -5px 10px #ffffff;
+  transition: all 0.2s ease;
+}
+
+.thermostat-btn:active {
+  box-shadow: 
+    inset 3px 3px 7px #c1c5ca,
+    inset -3px -3px 7px #ffffff;
+  color: #28587b;
+}
+
+/* Weather Details Component */
+.weather-details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  height: 100%;
+}
+
+.weather-metric {
+  background: #eef2f9;
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: none; /* Let the parent .hydro-section provide the shadow */
+  border: 1px solid rgba(0,0,0,0.03);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.metric-label {
+  font-size: 11px;
+  color: #8a9cb2;
+  text-transform: uppercase;
+}
+
+.metric-value {
+  font-size: 20px;
+  font-weight: 600;
+  color: #3e4e64;
+}
+
+.metric-highlight {
+  color: #4b79a1;
+  font-weight: 700;
+}
+
+/* Secondary Panels */
+.bottom-panels {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.mini-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: 
+    8px 8px 15px #c1c5ca,
+    -8px -8px 15px #ffffff !important;
+}
+
+.sun-cycle {
+  width: 100%;
+  height: 60px;
+  position: relative;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.sun-arc {
+  position: absolute;
+  top: 10px;
+  left: 10%;
+  width: 80%;
+  height: 100px;
+  border-radius: 50%;
+  border: 2px dashed rgba(40, 90, 123, 0.3);
+  border-bottom: none;
+}
+
+.sun-indicator {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: #f7b733;
+  border-radius: 50%;
+  box-shadow: 0 0 15px #f7b733;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Loading/Error */
+.hydro-loading, .hydro-error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  font-size: 20px;
+  color: #4b79a1;
+}
+
