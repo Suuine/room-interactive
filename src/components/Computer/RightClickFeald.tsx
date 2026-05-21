@@ -1,6 +1,6 @@
 import { useRef } from "react";
 // @ts-ignore: CSS import without type declarations
-import "../style/AdditionForScreen.css";
+import "../../style/AdditionForScreen.css";
 
 type Props = {
     position: { x: number; y: number };

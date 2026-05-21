@@ -1,12 +1,20 @@
 import React, { useState } from 'react';
-import Screen from './Screen'; // Import the new MainScreen component
+import Screen from './Screen';
+import MainScreen from './MainScreen';
 
 function Computer() {
-    const [isLoggedIn, setIsLoggedIn] = useState(false); // Keep state, but it won't be used for now
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     return (
         <div className='computer'>
-            <Screen />
+            {isLoggedIn ? (
+                <Screen />
+            ) : (
+                <MainScreen 
+                    username='Elionor' 
+                    onAuthenticated={() => setIsLoggedIn(true)} 
+                />
+            )}
         </div>
     );
 }

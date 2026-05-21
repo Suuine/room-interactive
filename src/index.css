@@ -1,13 +1,179 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@300;600;700&display=swap');
+
+*, *::before, *::after { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
 }
 
+body {
+  font-family: 'Rajdhani', sans-serif;
+  background: #080808;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── APP CONTAINER ── */
+.app-container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffc2fc;
+}
+
+.back-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  font-family: 'Share Tech Mono', monospace;
+}
+
+.back-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(-5px);
+}
+
+.computer {
+  width: 100vw;
+  height: 100vh;
+}
+
+/* ── HOME SCREEN ── */
+.home-screen {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.room-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+/* ── ZONES ── */
+.home-zones {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 10;
+  gap: 0;
+}
+
+.home-zone {
+  flex: 1;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s cubic-bezier(0.23,1,0.32,1);
+  background: rgba(0,0,0,0);
+}
+
+.home-zone:hover {
+  background: rgba(0,0,0,0.15);
+}
+
+.home-zone:hover .zone-inner {
+  transform: scale(1.08);
+  background: rgba(255,255,255,0.12);
+  box-shadow: 0 8px 32px rgba(255,255,255,0.15);
+}
+
+.zone-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 32px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.zone-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 13px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.zone-icon {
+  font-size: 48px;
+  line-height: 1;
+  filter: drop-shadow(0 0 8px rgba(255,255,255,0.2));
+}
+
+/* HYDRO - LEFT */
+.zone-hydro .zone-inner {
+  background: rgba(0,255,200,0.08);
+  border-color: rgba(0,255,242,0.2);
+}
+
+.zone-hydro:hover .zone-label {
+  color: #00fff2;
+  opacity: 1;
+}
+
+.zone-hydro:hover {
+  background: rgba(0,255,242,0.08);
+}
+
+/* COMPUTER - CENTER */
+.zone-computer .zone-inner {
+  background: rgba(100,108,255,0.08);
+  border-color: rgba(100,108,255,0.2);
+}
+
+.zone-computer:hover .zone-label {
+  color: #9198ff;
+  opacity: 1;
+}
+
+.zone-computer:hover {
+  background: rgba(100,108,255,0.08);
+}
+
+/* CASSETE - RIGHT */
+.zone-cassete .zone-inner {
+  background: rgba(255,135,249,0.08);
+  border-color: rgba(255,135,249,0.2);
+}
+
+.zone-cassete:hover .zone-label {
+  color: #ff87f9;
+  opacity: 1;
+}
+
+.zone-cassete:hover {
+  background: rgba(255,135,249,0.08);
+}
+
+/* ── EXISTING STYLES ── */
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }

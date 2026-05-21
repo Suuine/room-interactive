@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 // @ts-ignore: CSS import without type declarations
-import '../../../style/HydroPanel.css';
+import '../../style/HydroPanel.css';
 import { WeatherData, fetchWeatherData } from './weatherService';
 import ThermostatControl from './ThermostatControl';
 import WeatherDetails from './WeatherDetails';
