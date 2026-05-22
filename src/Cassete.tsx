@@ -62,6 +62,28 @@ function Model({ url, onClick, position = [0, 0, 0], isPlaying = false }: ModelP
   );
 }
 
+function DebugModel({ url }: { url: string }) {
+  const gltf = useGLTF(url);
+
+  useEffect(() => {
+    gltf.scene.traverse((node: any) => {
+      if (node.material) {
+        console.log('🔍 Node:', node.name);
+        console.log('   Material:', node.material);
+        console.log('   Has Texture:', !!node.material.map);
+        
+        if (node.material.map) {
+          console.log('   Текстура завантажена!');
+        } else {
+          console.log('   Текстури НЕМАЄ!');
+        }
+      }
+    });
+  }, [gltf]);
+
+  return <primitive object={gltf.scene} />;
+}
+
 function AutoScaler({ children, modelKey, zoomFactor = 0.7 }: { children: React.ReactNode; modelKey: string; zoomFactor?: number }) {
   const groupRef = useRef<THREE.Group>(null);
   const camera = useThree((state) => state.camera as THREE.OrthographicCamera);
@@ -95,6 +117,13 @@ const SONG_FILES: Record<string, string> = {
   BlackSorrow:      '/musics/Black Sorrow.mp3',
 };
 
+const POSTER_MODELS: Record<string, string> = {
+  poster1: '/models/poster1.glb',
+  poster2: '/models/poster2.glb',
+  poster3: '/models/poster3.glb',
+  poster4: '/models/poster4.glb',
+};
+
 function formatTime(sec: number): string {
   const m = Math.floor(sec / 60);
   const s = Math.floor(sec % 60);
@@ -103,6 +132,7 @@ function formatTime(sec: number): string {
 
 export default function Cassete() {
   const [selectedSong, setSelectedSong] = useState<string | null>(null);
+  const [selectedPoster, setSelectedPoster] = useState<string | null>(null);
   const [shelfIndex, setShelfIndex] = useState<number>(0);
   const [lastActiveSong, setLastActiveSong] = useState<string>('Не обрано');
   const [modelState, setModelState] = useState<'closed' | 'opened' | 'playing'>('closed');
@@ -217,6 +247,11 @@ export default function Cassete() {
     }
   };
 
+  const handlePosterClick = (posterKey: string) => {
+    console.log('Клік на постер:', posterKey);
+    setSelectedPoster(posterKey);
+  };
+
   return (
     <div className="layout-container">
       <div className="viewer-section">
@@ -254,7 +289,7 @@ export default function Cassete() {
             </AutoScaler>
           </Suspense>
 
-          <OrbitControls enableRotate={false} enableZoom={true} enablePan={false} />
+          <OrbitControls enableRotate={false} enableZoom={false} enablePan={false} />
         </Canvas>
 
         {modelState === 'playing' && playingSong && (
@@ -299,6 +334,139 @@ export default function Cassete() {
           <div className="modal-hint">Плеєр: {selectedSong}. Клікніть збоку, щоб закрити</div>
         </div>
       )}
+
+      {selectedPoster && POSTER_MODELS[selectedPoster] && (
+        <div className="fullscreen-modal-overlay" onClick={() => setSelectedPoster(null)}>
+          <div className="modal-canvas-container" onClick={(e) => e.stopPropagation()}>
+            <Canvas>
+              <OrthographicCamera makeDefault position={[0, 0, 100]} near={0.1} far={2000} />
+              <ambientLight intensity={0.8} />
+              <directionalLight position={[15, 15, 10]} intensity={1.6} />
+              <directionalLight position={[-15, -15, -10]} intensity={0.5} />
+              <Suspense fallback={<Box args={[1, 1, 1]}><meshStandardMaterial wireframe /></Box>}>
+                <AutoScaler modelKey={selectedPoster} zoomFactor={0.85}>
+                  <DebugModel url={POSTER_MODELS[selectedPoster]} /> 
+                </AutoScaler>
+              </Suspense>
+              <OrbitControls enableRotate={true} enableZoom={false} enablePan={false} />
+            </Canvas>
+          </div>
+          <div className="modal-hint">Постер: {selectedPoster}. Клікніть збоку, щоб закрити</div>
+        </div>
+      )}
+
+<img 
+  style={{ 
+    position: 'absolute',
+    top: '10%',
+    left: '10%',
+    zIndex: 0,
+    pointerEvents: 'none',
+  }}
+  src="/poster1.jpg" 
+  alt="Poster 1"
+/>
+<div
+  style={{
+    position: 'absolute',
+    top: '10%',
+    left: '10%',
+    width: '250px',
+    height: '350px',
+    zIndex: 50,
+    cursor: 'pointer',
+    background: 'transparent'
+  }}
+  onClick={() => handlePosterClick('poster1')}
+  title="Клік на постер"
+/>
+
+<img 
+  style={{ 
+    position: 'absolute',
+    top: '16%',
+    left: '50%',
+    zIndex: 0,
+    pointerEvents: 'none',
+    maxWidth: '250px',
+    maxHeight: '350px',
+  }}
+  src="/poster2.webp" 
+  alt="Poster 2"
+/>
+<div
+  style={{
+    position: 'absolute',
+    top: '16%',
+    left: '50%',
+    width: '250px',
+    height: '350px',
+    zIndex: 50,
+    cursor: 'pointer',
+    background: 'transparent'
+  }}
+  onClick={() => handlePosterClick('poster2')}
+  title="Клік на постер"
+/>
+
+<img 
+  style={{ 
+    position: 'absolute',
+    top: '9%',
+    left: '38%',
+    zIndex: 0,
+    pointerEvents: 'none',
+    maxWidth: '250px',
+    maxHeight: '350px',
+  }}
+  src="/poster3.jpg" 
+  alt="Poster 3"
+/>
+<div
+  style={{
+    position: 'absolute',
+    top: '9%',
+    left: '38%',
+    width: '250px',
+    height: '350px',
+    zIndex: 50,
+    cursor: 'pointer',
+    background: 'transparent'
+  }}
+  onClick={() => handlePosterClick('poster3')}
+  title="Клік на постер"
+/>
+<img 
+  style={{ 
+    position: 'absolute',
+    top: '4%',
+    left: '70%',
+    zIndex: 0,
+    pointerEvents: 'none',
+    maxWidth: '500px',
+    maxHeight: '350px',
+  }}
+  src="/poster4.jpg" 
+  alt="Poster 4"
+/>
+<div
+  style={{
+    position: 'absolute',
+    top: '4%',
+    left: '70%',
+    width: '500px',
+    height: '150px',
+    zIndex: 50,
+    cursor: 'pointer',
+    background: 'transparent'
+  }}
+  onClick={() => handlePosterClick('poster4')}
+  title="Клік на постер"
+/>
+
+      <div className='table-section'>
+        <img src="https://www.shutterstock.com/image-vector/vector-cartoon-wooden-texture-background-260nw-2145003917.jpg" alt="Table" className="table-image" />
+      </div>
     </div>
   );
 }
